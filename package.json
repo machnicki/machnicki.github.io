@@ -1,0 +1,22 @@
+{
+  "name": "machnicki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machnicki/machnicki.github.io.git"
+  },
+  "author": "Miron Machnicki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/machnicki/machnicki.github.io/issues"
+  },
+  "homepage": "https://github.com/machnicki/machnicki.github.io#readme",
+  "devDependencies": {
+    "webpack": "^2.1.0-beta.4"
+  }
+}
