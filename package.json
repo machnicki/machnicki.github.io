@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/machnicki/machnicki.github.io#readme",
   "devDependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-server": "^2.0.0-beta"
   }
