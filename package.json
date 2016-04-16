@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "lint": "eslint . --ext .js --ext .jsx && jscs src"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,20 @@
   },
   "homepage": "https://github.com/machnicki/machnicki.github.io#readme",
   "devDependencies": {
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-import": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0",
+    "jscs": "^3.0.2",
+    "jscs-loader": "^0.2.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-server": "^2.0.0-beta"
+  },
+  "dependencies": {
+    "eslint": "^2.8.0"
   }
 }
