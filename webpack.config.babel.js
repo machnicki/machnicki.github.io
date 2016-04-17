@@ -6,6 +6,7 @@ const PATHS = {
 }
 
 export default {
+  devtool: 'source-map',
   entry: {
     app: PATHS.app,
   },

@@ -1,5 +1,7 @@
 # Dependency directory
 node_modules
 coverage
+build
+!build/index.html
 
 *.log
