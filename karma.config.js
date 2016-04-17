@@ -6,7 +6,7 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     singleRun: !argv.watch,
     frameworks: ['mocha', 'chai'],
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
@@ -31,6 +31,13 @@ module.exports = function(config) {
         loaders: [
           { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel' },
         ],
+        postLoaders: [
+          {
+            test: /\.(js|jsx)$/,
+            exclude: /(test|node_modules)\//,
+            loader: 'istanbul-instrumenter'
+          }
+        ],
       },
       externals: {
         'jsdom': 'window',
@@ -42,11 +49,19 @@ module.exports = function(config) {
     webpackMiddleware: {
       noInfo: true
     },
+    webpackServer: {
+      noInfo: true,
+    },
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage/',
+    },
     plugins: [
       'karma-mocha',
       'karma-chai',
       'karma-webpack',
       'karma-phantomjs-launcher',
+      'karma-coverage',
       'karma-spec-reporter',
       'karma-sourcemap-loader'
     ]
