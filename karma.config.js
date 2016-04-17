@@ -13,7 +13,7 @@ module.exports = function(config) {
       './test/**/*.js'
     ],
     preprocessors: {
-      ['./test/**/*.js']: ['webpack', 'sourcemap']
+      ['./test/**/*.js']: ['webpack', 'sourcemap', 'coverage']
     },
     webpack: {
        devtool: 'inline-source-map',
@@ -53,8 +53,15 @@ module.exports = function(config) {
       noInfo: true,
     },
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/',
+      reporters: [
+        {
+          type: 'lcov',
+        },
+        {
+          type: 'html',
+          dir: 'coverage/',
+        }
+      ]
     },
     plugins: [
       'karma-mocha',
