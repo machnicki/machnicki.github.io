@@ -1,11 +1,11 @@
-const path = require('path')
+import path from 'path'
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
 }
 
-module.exports = {
+export default {
   entry: {
     app: PATHS.app,
   },
@@ -17,7 +17,13 @@ module.exports = {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        loaders: ['babel'],
+        loader: 'babel',
+        query: {
+          presets: [
+            'es2015-native-modules',
+            'react',
+          ],
+        },
         include: PATHS.app,
       },
     ],
