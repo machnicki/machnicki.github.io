@@ -5,3 +5,7 @@
 
 # React + Webpack 2
 Project to test some new tech
+
+## Useful commands
+`git push heroku`
+`heroku open`
