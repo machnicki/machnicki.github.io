@@ -22,6 +22,7 @@ export default {
           presets: [
             'es2015-native-modules',
             'react',
+            'react-optimize',
           ],
         },
         include: PATHS.app,
