@@ -1,5 +1,6 @@
 ./node_modules/**/*.js
 coverage/**/*
 karma.config.js
+webpack.config.js
 server.js
 build
