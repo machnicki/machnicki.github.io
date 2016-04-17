@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base build",
     "build": "webpack",
-    "lint": "eslint . --ext .js --ext .jsx && jscs src"
+    "lint": "eslint . --ext .js --ext .jsx && jscs src",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
