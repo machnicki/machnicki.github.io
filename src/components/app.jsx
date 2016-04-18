@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import CSSModules from 'react-css-modules'
+import styles from './app.css'
 
-export function App() {
+export function App(props) {
   return (
-    <div>
-      This is react application
+    <div styleName="app">
+      This is <span className={ props.styles.bold }>react</span> application
     </div>
   )
 }
 
-export default App
+App.propTypes = {
+  styles: PropTypes.obj,
+}
+
+export default CSSModules(App, styles)

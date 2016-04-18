@@ -6,6 +6,10 @@
 # React + Webpack 2
 Project to test some new tech
 
+## Links
+[CSS Modules](https://github.com/gajus/react-css-modules)
+[CSS Modules - examples](https://css-modules.github.io/webpack-demo/)
+
 ## Useful commands
 `git push heroku`
 `heroku open`
