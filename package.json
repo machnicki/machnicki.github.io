@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "5.1.0"
+    "node": "5.1.0",
+    "npm": "3.8.3"
   },
   "scripts": {
     "start": "webpack-dev-server --content-base build",
