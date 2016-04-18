@@ -27,7 +27,7 @@
     "url": "https://github.com/machnicki/machnicki.github.io/issues"
   },
   "homepage": "https://github.com/machnicki/machnicki.github.io#readme",
-  "devDependencies": {
+  "dependencies": {
     "babel-core": "^6.7.6",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.7.4",
@@ -67,6 +67,5 @@
     "sinon": "^1.17.3",
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-server": "^2.0.0-beta"
-  },
-  "dependencies": {}
+  }
 }
