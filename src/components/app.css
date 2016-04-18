@@ -1,0 +1,7 @@
+.app {
+  composes: red from '../styles/classes.css';
+}
+
+.bold {
+  font-weight: bold;
+}
