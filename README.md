@@ -9,3 +9,5 @@ Project to test some new tech
 ## Useful commands
 `git push heroku`
 `heroku open`
+`heroku local web`
+`heroku logs --tail`
