@@ -37,6 +37,8 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-register": "^6.7.2",
+    "cssx": "^3.8.0",
+    "cssx-loader": "^3.8.0",
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^7.0.0",
     "eslint-loader": "^1.3.0",
@@ -47,6 +49,7 @@
     "jscs": "^3.0.2",
     "jscs-loader": "^0.2.0",
     "react": "^15.0.1",
+    "react-cssx": "^1.0.1",
     "react-dom": "^15.0.1",
     "webpack": "^2.1.0-beta.4"
   },
