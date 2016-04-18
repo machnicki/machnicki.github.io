@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base build",
-    "postinstall": "webpack",
     "build": "webpack",
     "server": "node server",
     "lint": "eslint . --ext .js --ext .jsx && jscs src",
