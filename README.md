@@ -8,7 +8,7 @@
 Project to test some new tech
 [Link to running app](http://machnicki.herokuapp.com)
 
-## Links
+## Links  
 [CSS Modules](https://github.com/gajus/react-css-modules)
 [CSS Modules - examples](https://css-modules.github.io/webpack-demo/)
 
