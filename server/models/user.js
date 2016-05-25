@@ -13,11 +13,11 @@ const UserSchema = mongoose.Schema({
   },
   email: {
     type: String,
-  }
+  },
 })
 
 const User = module.exports = mongoose.model('User', UserSchema)
 
-module.exports.createUser = function(newUser, callback) {
+module.exports.createUser = function (newUser, callback) {
   newUser.save(callback)
 }
