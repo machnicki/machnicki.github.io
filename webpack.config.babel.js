@@ -19,13 +19,6 @@ export default {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        query: {
-          presets: [
-            'es2015-native-modules',
-            'react',
-            'react-optimize',
-          ],
-        },
         include: PATHS.app,
       },
       {

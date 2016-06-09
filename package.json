@@ -57,7 +57,7 @@
     "react-css-modules": "^3.7.6",
     "react-dom": "^15.0.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.4"
+    "webpack": "^1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -78,7 +78,6 @@
     "phantomjs-prebuilt": "^2.1.7",
     "react-addons-test-utils": "^15.0.1",
     "sinon": "^1.17.3",
-    "webpack-dev-server": "^2.0.0-beta",
-    "webpack": "^2.1.0-beta.4"
+    "webpack-dev-server": "^1"
   }
 }
