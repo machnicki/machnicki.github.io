@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/machnicki/machnicki.github.io/badges/gpa.svg)](https://codeclimate.com/github/machnicki/machnicki.github.io)
 [![Dependency Status](https://www.versioneye.com/user/projects/57133b7cfcd19a0051855a77/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57133b7cfcd19a0051855a77)
 
-# React + Webpack 2
+# React + Nodejs tests
 Project to test some new tech
 [Link to running app](http://machnicki.herokuapp.com)
 
