@@ -1,17 +1,21 @@
 import { createStore as _createStore, applyMiddleware, compose } from 'redux'
-import reducer from './reducer'
-import { persistState } from 'redux-devtools'
+import createSagaMiddleware from 'redux-saga'
+
+import reducer from './reducers'
+import saga from './sagas'
 
 export default function createStore(initialState = {}) {
-  const middleware = []
+  const sagaMiddleware = createSagaMiddleware()
+  const middleware = [
+    sagaMiddleware,
+  ]
 
   let finalCreateStore;
 
   if (__DEV__ && window.devToolsExtension) {
     finalCreateStore = compose(
       applyMiddleware(...middleware),
-      window.devToolsExtension(),
-      persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+      window.devToolsExtension()
     )(_createStore)
   } else {
     finalCreateStore = applyMiddleware(...middleware)(_createStore)
@@ -19,8 +23,10 @@ export default function createStore(initialState = {}) {
 
   const store = finalCreateStore(reducer, initialState)
 
+  sagaMiddleware.run(saga)
+
   if (__DEV__ && module.hot) {
-    module.hot.accept('./reducer', () => {
+    module.hot.accept('./reducers', () => {
       store.replaceReducer(reducer)
     })
   }

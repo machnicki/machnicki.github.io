@@ -1,5 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 import App from './components/app.jsx'
+import createStore from './redux/create'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+render((
+  <Provider store={ createStore() }>
+    <App />
+  </Provider>
+), document.getElementById('app'))
