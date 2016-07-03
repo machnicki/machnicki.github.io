@@ -5,13 +5,19 @@ export function Button({
   dispatch,
 }) {
   return (
-    <div onClick={ () => {
-      dispatch({
-        type: 'TEST_ACTION',
-        payload: { id: 1}
-      })
-    } }>Click me</div>
+    <div
+      onClick={ () => {
+        dispatch({
+          type: 'TEST_ACTION',
+          payload: { id: 1 },
+        })
+      } }
+    >Click me</div>
   )
+}
+
+Button.propTypes = {
+  dispatch: PropTypes.func,
 }
 
 export default connect()(Button)

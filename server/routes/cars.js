@@ -8,20 +8,22 @@ const carsData = [
   },
   {
     id: 2,
-    name: 'Fiat 124 Spider'
+    name: 'Fiat 124 Spider',
   },
   {
     id: 3,
-    name: 'Seat Cordoba'
+    name: 'Seat Cordoba',
   },
 ]
 
 router.get('/:id', (req, res, next) => {
-  res.json(carsData.filter(car => car.id == req.params.id)[0])
+  res.json(carsData.filter(car => car.id === req.params.id)[0])
 })
 
-router.get('/', (req, res, next) => { res.json({
-  cars: carsData
-}) })
+router.get('/', (req, res, next) => {
+  res.json({
+    cars: carsData,
+  })
+})
 
 module.exports = router
