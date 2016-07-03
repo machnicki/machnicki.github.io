@@ -48,6 +48,7 @@
     "eslint-plugin-react": "^5",
     "express": "^4",
     "express-session": "^1",
+    "immutable": "^3",
     "jscs": "^3",
     "jscs-loader": "*",
     "mongodb": "^2",

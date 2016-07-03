@@ -1,5 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
+import webpackAliases from './webpack-aliases'
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -42,5 +43,8 @@ export default {
         include: PATHS.app,
       },
     ],
+  },
+  resolve: {
+    alias: webpackAliases,
   },
 }
