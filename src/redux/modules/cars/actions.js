@@ -1,3 +1,5 @@
+import Config from '../../../config'
+
 export function create() {
 
 }
@@ -11,5 +13,7 @@ export function get() {
 }
 
 export function all() {
-  console.log('get cars')
+  fetch(Config.CarsUrl)
+    .then(response => response.json())
+    .then(response => console.log(response))
 }

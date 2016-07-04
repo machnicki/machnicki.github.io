@@ -21,9 +21,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.get('/', (req, res, next) => {
-  res.json({
-    cars: carsData,
-  })
+  res.json(carsData)
 })
 
 module.exports = router
