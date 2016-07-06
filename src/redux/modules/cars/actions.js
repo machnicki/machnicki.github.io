@@ -1,19 +1,27 @@
-import Config from '../../../config'
+import {
+  GET,
+  CREATE,
+  UPDATE,
+  ALL,
+  DEL,
+} from './types'
 
-export function create() {
-
+export function create(payload) {
+  return { type: CREATE, payload }
 }
 
-export function update() {
-
+export function update(payload) {
+  return { type: UPDATE, payload }
 }
 
-export function get() {
-
+export function get(payload) {
+  return { type: GET, payload }
 }
 
 export function all() {
-  fetch(Config.CarsUrl)
-    .then(response => response.json())
-    .then(response => console.log(response))
+  return { type: ALL }
+}
+
+export function del(payload) {
+  return { type: DEL, payload }
 }

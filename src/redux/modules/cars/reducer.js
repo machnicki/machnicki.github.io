@@ -1,32 +1,48 @@
-import { fromJS } from 'immutable'
+import { fromJS, Map } from 'immutable'
 
 import {
   GET,
   GET_SUCCESS,
   GET_ERROR,
+  CREATE,
+  CREATE_SUCCESS,
+  CREATE_ERROR,
+  UPDATE,
+  UPDATE_SUCCESS,
+  UPDATE_ERROR,
+  ALL,
+  ALL_SUCCESS,
+  ALL_ERROR,
+  DEL,
+  DEL_SUCCESS,
+  DEL_ERROR,
 } from './types'
 
 const initialState = fromJS({
   isLoading: false,
   error: false,
-  data: fromJS({}),
+  data: Map(),
 })
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case GET:
+    case ALL:
       return state
         .merge({
           isLoading: true,
           error: false,
         })
-    case GET_SUCCESS:
+    case ALL_SUCCESS:
       return state
         .merge({
           isLoading: false,
-          data: {}, // add response
+          data: state.get('data').merge(
+            Map((action.cars || []).map(
+              car => ([car.id, car])
+            ))
+          ),
         })
-    case GET_ERROR:
+    case ALL_ERROR:
       return state
         .merge({
           isLoading: false,

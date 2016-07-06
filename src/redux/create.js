@@ -2,7 +2,7 @@ import { createStore as _createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import reducer from './reducers'
-import saga from './sagas'
+import sagas from './sagas'
 
 export default function createStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware()
@@ -23,7 +23,7 @@ export default function createStore(initialState = {}) {
 
   const store = finalCreateStore(reducer, initialState)
 
-  sagaMiddleware.run(saga)
+  sagas.forEach(saga => sagaMiddleware.run(saga))
 
   if (__DEV__ && module.hot) {
     module.hot.accept('./reducers', () => {
