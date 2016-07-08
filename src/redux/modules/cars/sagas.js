@@ -1,6 +1,7 @@
 import Config from '../../../config'
 import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
+import * as http from '../../../utils/http'
 
 import {
   GET,
@@ -20,22 +21,59 @@ import {
   DEL_ERROR,
 } from './types'
 
-function* getCars(action) {
+const APIurl = Config.CarsUrl
+
+function* get(action = {}) {
   try {
-    const cars = yield call(() => fetch(Config.CarsUrl).then(response => response.json()))
-    yield put({ type: ALL_SUCCESS, cars })
+    const result = yield call(() => http.get(APIurl, action.payload))
+    yield put({ type: GET_SUCCESS, result })
+  } catch (e) {
+    yield put({ type: GET_ERROR, message: e.message })
+  }
+}
+
+function* all(action = {}) {
+  try {
+    const result = yield call(() => http.get(APIurl, action.payload))
+    yield put({ type: ALL_SUCCESS, result })
   } catch (e) {
     yield put({ type: ALL_ERROR, message: e.message })
   }
 }
 
-function* createCar(action) {
-  yield console.log('lets create new car')
+function* create(action = {}) {
+  try {
+    const result = yield call(() => http.post(APIurl, action.payload))
+    yield put({ type: CREATE_SUCCESS, result })
+  } catch (e) {
+    yield put({ type: CREATE_ERROR, message: e.message })
+  }
+}
+
+function* del(action = {}) {
+  try {
+    const result = yield call(() => http.del(APIurl, action.payload))
+    yield put({ type: DEL_SUCCESS, result })
+  } catch (e) {
+    yield put({ type: DEL_ERROR, message: e.message })
+  }
+}
+
+function* update(action = {}) {
+  try {
+    const result = yield call(() => http.put(APIurl, action.payload))
+    yield put({ type: UPDATE_SUCCESS, result })
+  } catch (e) {
+    yield put({ type: UPDATE_ERROR, message: e.message })
+  }
 }
 
 export default function* saga() {
   yield [
-    takeLatest(ALL, getCars),
-    takeLatest(CREATE, createCar),
+    takeLatest(GET, get),
+    takeLatest(ALL, all),
+    takeLatest(CREATE, create),
+    takeLatest(DEL, del),
+    takeLatest(UPDATE, update),
   ]
 }

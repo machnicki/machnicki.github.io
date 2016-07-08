@@ -10,7 +10,13 @@ export class CarsContainer extends Component {
 
   render() {
     return (
-      <CarsList onCreate={ () => this.props.dispatch(CarsActions.create()) } />
+      <CarsList
+        onCreate={ () => this.props.dispatch(
+          CarsActions.create({
+            name: 'This is my name',
+          })
+        ) }
+      />
     )
   }
 }

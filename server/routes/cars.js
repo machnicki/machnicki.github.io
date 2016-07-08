@@ -24,4 +24,19 @@ router.get('/', (req, res, next) => {
   res.json(carsData)
 })
 
+router.post('/', (req, res, next) => {
+  res.json(carsData[0])
+})
+
+router.put('/', (req, res, next) => {
+  res.json(carsData[0])
+})
+
+router.delete('/', (req, res, next) => {
+  res.json({
+    id: 1,
+    message: 'Car has been deleted',
+  })
+})
+
 module.exports = router
