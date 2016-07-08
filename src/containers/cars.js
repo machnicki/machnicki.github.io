@@ -10,19 +10,22 @@ export class CarsContainer extends Component {
 
   render() {
     return (
-      <CarsList
-        onCreate={ () => this.props.dispatch(
-          CarsActions.create({
-            name: 'This is my name',
-          })
-        ) }
-      />
+      <CarsList cars={ this.props.cars.toArray() } />
     )
   }
 }
 
+CarsContainer.defaultProps = {
+  cars: [],
+}
+
 CarsContainer.propTypes = {
+  cars: PropTypes.array,
   dispatch: PropTypes.func,
 }
 
-export default connect()(CarsContainer)
+export default connect(state => {
+  return {
+    cars: state.cars.get('data'),
+  }
+})(CarsContainer)

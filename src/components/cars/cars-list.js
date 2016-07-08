@@ -6,21 +6,19 @@ import CarsItem from './cars-item'
 export function CarsList(props) {
   return (
     <ul styleName="cars-list">
-      This is list of cars
-      <CarsItem />
-      <button onClick={ props.onCreate }>
-        Lets create new one
-      </button>
+      {
+        props.cars.map(car => (<CarsItem car={ car } />))
+      }
     </ul>
   )
 }
 
 CarsList.defaultProps = {
-  onCreate: () => null,
+  cars: [],
 }
 
 CarsList.propTypes = {
-  onCreate: PropTypes.func,
+  cars: PropTypes.array,
   styles: PropTypes.func,
 }
 

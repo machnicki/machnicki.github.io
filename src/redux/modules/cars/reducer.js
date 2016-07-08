@@ -37,7 +37,7 @@ export default function reducer(state = initialState, action = {}) {
         .merge({
           isLoading: false,
           data: state.get('data').merge(
-            Map((action.cars || []).map(
+            Map((action.result || []).map(
               car => ([car.id, car])
             ))
           ),
