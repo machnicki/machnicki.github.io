@@ -4,9 +4,9 @@ import styles from './style.css'
 
 export function CarsItem(props) {
   return (
-    <il styleName="cars-item">
+    <li styleName="cars-item" onClick={ () => { console.log('test') } }>
       This is cars item
-    </il>
+    </li>
   )
 }
 

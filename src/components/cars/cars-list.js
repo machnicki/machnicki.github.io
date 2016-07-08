@@ -8,11 +8,19 @@ export function CarsList(props) {
     <ul styleName="cars-list">
       This is list of cars
       <CarsItem />
+      <button onClick={ props.onCreate }>
+        Lets create new one
+      </button>
     </ul>
   )
 }
 
+CarsList.defaultProps = {
+  onCreate: () => null,
+}
+
 CarsList.propTypes = {
+  onCreate: PropTypes.func,
   styles: PropTypes.func,
 }
 

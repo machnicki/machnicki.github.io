@@ -10,7 +10,7 @@ export class CarsContainer extends Component {
 
   render() {
     return (
-      <CarsList />
+      <CarsList onCreate={ () => this.props.dispatch(CarsActions.create()) } />
     )
   }
 }

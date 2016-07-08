@@ -29,6 +29,13 @@ function* getCars(action) {
   }
 }
 
+function* createCar(action) {
+  yield console.log('lets create new car')
+}
+
 export default function* saga() {
-  yield* takeLatest(ALL, getCars)
+  yield [
+    takeLatest(ALL, getCars),
+    takeLatest(CREATE, createCar),
+  ]
 }
