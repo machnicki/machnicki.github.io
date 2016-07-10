@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { CarsList } from '../components/cars'
+import { CarsList, CarForm } from '../components/cars'
 import * as CarsActions from '../redux/modules/cars/actions'
 
 export class CarsContainer extends Component {
@@ -8,9 +8,16 @@ export class CarsContainer extends Component {
     this.props.dispatch(CarsActions.all())
   }
 
+  handleSubmitCarForm = data => {
+    this.props.dispatch(CarsActions.create(data))
+  }
+
   render() {
     return (
-      <CarsList cars={ this.props.cars.toArray() } />
+      <div>
+        <CarsList cars={ this.props.cars.toArray() } />
+        <CarForm onSubmit={ this.handleSubmitCarForm } />
+      </div>
     )
   }
 }
