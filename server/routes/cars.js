@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Car = require('../models/car')
 
 const carsData = [
   {
@@ -25,6 +26,20 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+  const myCar = new Car({
+    name: 'My awesome car'
+  })
+
+  myCar.save(function(err){
+    if(err) {
+        console.log('save error', err);
+    }
+
+    Car.find({}, function(error, cars) {
+      console.log('my cars', cars)
+    })
+  })
+
   res.json(carsData[0])
 })
 
