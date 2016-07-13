@@ -39,6 +39,7 @@
     "babel-preset-react-optimize": "^1",
     "babel-preset-stage-0": "^6",
     "babel-register": "^6",
+    "body-parser": "^1.15.2",
     "css-loader": "*",
     "eslint": "^2",
     "eslint-config-airbnb": "^9",

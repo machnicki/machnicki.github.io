@@ -26,8 +26,10 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+  const { name } = req.body
+
   const myCar = new Car({
-    name: 'My awesome car'
+    name,
   })
 
   myCar.save(function(err){
