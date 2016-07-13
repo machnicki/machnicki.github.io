@@ -2,27 +2,18 @@ const express = require('express')
 const router = express.Router()
 const Car = require('../models/car')
 
-const carsData = [
-  {
-    id: 1,
-    name: 'Mazda 6',
-  },
-  {
-    id: 2,
-    name: 'Fiat 124 Spider',
-  },
-  {
-    id: 3,
-    name: 'Seat Cordoba',
-  },
-]
-
 router.get('/:id', (req, res, next) => {
-  res.json(carsData.filter(car => car.id === req.params.id)[0])
+  Car.findOne({ id: req.params.id }, (err, cars) => {
+    if (err) console.log('save error', err);
+    res.json(cars)
+  })
 })
 
 router.get('/', (req, res, next) => {
-  res.json(carsData)
+  Car.find({}, (err, cars) => {
+    if (err) console.log('save error', err);
+    res.json(cars)
+  })
 })
 
 router.post('/', (req, res, next) => {
@@ -32,21 +23,17 @@ router.post('/', (req, res, next) => {
     name,
   })
 
-  myCar.save(function(err){
-    if(err) {
-        console.log('save error', err);
-    }
-
-    Car.find({}, function(error, cars) {
-      console.log('my cars', cars)
-    })
+  myCar.save((err, car) => {
+    if (err) console.log('save error', err);
+    res.json(car)
   })
-
-  res.json(carsData[0])
 })
 
-router.put('/', (req, res, next) => {
-  res.json(carsData[0])
+router.put('/:id', (req, res, next) => {
+  Car.find({ id: req.params.id }, (err, cars) => {
+    if (err) console.log('save error', err);
+    res.json(cars)
+  })
 })
 
 router.delete('/', (req, res, next) => {

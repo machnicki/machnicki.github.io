@@ -2,7 +2,7 @@ mongoose = require('mongoose')
 
 module.exports = {
   init: function() {
-    mongoose.connect('mongodb://localhost/test')
+    mongoose.connect('mongodb://localhost/cars-redux')
     mongoose.connection.on('error', () => {
       console.error('Connection Error')
     })
