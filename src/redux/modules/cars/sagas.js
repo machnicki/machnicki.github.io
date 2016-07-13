@@ -52,7 +52,7 @@ function* create(action = {}) {
 
 function* del(action = {}) {
   try {
-    const result = yield call(() => http.del(APIurl, action.payload))
+    const result = yield call(() => http.del(`${APIurl}/${action.payload}`))
     yield put({ type: DEL_SUCCESS, result })
   } catch (e) {
     yield put({ type: DEL_ERROR, message: e.message })

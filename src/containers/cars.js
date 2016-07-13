@@ -8,6 +8,10 @@ export class CarsContainer extends Component {
     this.props.dispatch(CarsActions.all())
   }
 
+  handleRemoveCar = carId => {
+    this.props.dispatch(CarsActions.del(carId))
+  }
+
   handleSubmitCarForm = data => {
     this.props.dispatch(CarsActions.create(data))
   }
@@ -15,8 +19,13 @@ export class CarsContainer extends Component {
   render() {
     return (
       <div>
-        <CarsList cars={ this.props.cars.toArray() } />
-        <CarForm onSubmit={ this.handleSubmitCarForm } />
+        <CarsList
+          cars={ this.props.cars.toArray() }
+          onRemove={ this.handleRemoveCar }
+         />
+        <CarForm
+          onSubmit={ this.handleSubmitCarForm }
+        />
       </div>
     )
   }

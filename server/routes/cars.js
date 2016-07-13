@@ -4,14 +4,14 @@ const Car = require('../models/car')
 
 router.get('/:id', (req, res, next) => {
   Car.findOne({ id: req.params.id }, (err, cars) => {
-    if (err) console.log('save error', err);
+    if (err) console.log('error', err);
     res.json(cars)
   })
 })
 
 router.get('/', (req, res, next) => {
   Car.find({}, (err, cars) => {
-    if (err) console.log('save error', err);
+    if (err) console.log('error', err);
     res.json(cars)
   })
 })
@@ -24,22 +24,25 @@ router.post('/', (req, res, next) => {
   })
 
   myCar.save((err, car) => {
-    if (err) console.log('save error', err);
+    if (err) console.log('error', err);
     res.json(car)
   })
 })
 
 router.put('/:id', (req, res, next) => {
-  Car.find({ id: req.params.id }, (err, cars) => {
-    if (err) console.log('save error', err);
+  Car.find({ _id: req.params.id }, (err, cars) => {
+    if (err) console.log('error', err);
     res.json(cars)
   })
 })
 
-router.delete('/', (req, res, next) => {
-  res.json({
-    id: 1,
-    message: 'Car has been deleted',
+router.delete('/:id', (req, res, next) => {
+  Car.remove({ _id: req.params.id }, err => {
+    if (err) console.log('error', err)
+    res.json({
+      _id: req.params.id,
+      message: 'Car removed'
+    })
   })
 })
 

@@ -26,11 +26,23 @@ const initialState = fromJS({
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
+    case GET:
     case ALL:
+    case CREATE:
+    case UPDATE:
+    case DEL:
       return state
         .merge({
           isLoading: true,
           error: false,
+        })
+    case GET_SUCCESS:
+    case CREATE_SUCCESS:
+    case UPDATE_SUCCESS:
+      return state
+        .merge({
+          isLoading: false,
+          data: state.get('data').set(action.result._id, action.result),
         })
     case ALL_SUCCESS:
       return state
@@ -42,7 +54,17 @@ export default function reducer(state = initialState, action = {}) {
             ))
           ),
         })
+    case DEL_SUCCESS:
+      return state
+        .merge({
+          isLoading: false,
+          data: state.get('data').delete(action.result._id),
+        })
+    case GET_ERROR:
     case ALL_ERROR:
+    case CREATE_ERROR:
+    case UPDATE_ERROR:
+    case DEL_ERROR:
       return state
         .merge({
           isLoading: false,
