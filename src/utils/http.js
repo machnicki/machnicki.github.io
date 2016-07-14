@@ -1,7 +1,7 @@
 const myFetch = method => (url = '', attr = null) => fetch(url, {
   method,
   headers: {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'Content-Type': 'application/json',
   },
   body: attr ? JSON.stringify(attr) : null,

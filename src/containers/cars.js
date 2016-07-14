@@ -22,7 +22,7 @@ export class CarsContainer extends Component {
         <CarsList
           cars={ this.props.cars.toArray() }
           onRemove={ this.handleRemoveCar }
-         />
+        />
         <CarForm
           onSubmit={ this.handleSubmitCarForm }
         />
