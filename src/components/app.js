@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './app.css'
-import Button from '../containers/sample.js'
 import CarsContainer from '../containers/cars.js'
+import Navigation from './navigation'
 
 export function App(props) {
   return (
     <div styleName="app">
+      <Navigation />
       This is <span className={ props.styles.bold }>react</span> application
-      <Button />
+      { props.children }
       <CarsContainer />
     </div>
   )
