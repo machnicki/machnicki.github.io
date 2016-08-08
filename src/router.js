@@ -6,15 +6,15 @@ function matchURI(path, uri) {
   const match = pattern.exec(uri)
   if (!match) return null
   const params = Object.create(null)
-  for (let i = 1; i < match.length; i++) {
-    params[keys[i - 1].name] =
-      match[i] !== undefined ? match[i] : undefined
+  for (let index = 1; index < match.length; index++) {
+    params[keys[index - 1].name] =
+      match[index] !== undefined ? match[index] : undefined
   }
   return params
 }
 
 async function resolve(routes, context) {
-  for (const route of routes) {
+  for (const [key, route] of Object.entries(routes)) {
     const uri = context.error ? '/error' : context.pathname
     const params = matchURI(route.path, uri)
     if (!params) continue

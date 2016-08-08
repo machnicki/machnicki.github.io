@@ -17,6 +17,7 @@ export function App(props) {
 
 App.propTypes = {
   styles: PropTypes.func,
+  children: PropTypes.element,
 }
 
 export default CSSModules(App, styles)

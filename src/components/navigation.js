@@ -6,7 +6,7 @@ export default function Navigation() {
     event.preventDefault()
     history.push({
       pathname: event.currentTarget.pathname,
-      search: event.currentTarget.search
+      search: event.currentTarget.search,
     })
   }
 
