@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 export default function HomeContainer() {
   return (
     <div>
-      This is a container
+      This is a container of home page
     </div>
   )
 }
