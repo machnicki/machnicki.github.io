@@ -41,7 +41,7 @@ router.delete('/:id', (req, res, next) => {
     if (err) console.log('error', err)
     res.json({
       _id: req.params.id,
-      message: 'Car removed'
+      message: 'Car removed',
     })
   })
 })

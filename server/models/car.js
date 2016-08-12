@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const carModel = function() {
+const carModel = function () {
   const schema = mongoose.Schema({
     name: String,
   })

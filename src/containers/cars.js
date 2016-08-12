@@ -40,8 +40,6 @@ CarsContainer.propTypes = {
   dispatch: PropTypes.func,
 }
 
-export default connect(state => {
-  return {
-    cars: state.cars.get('data'),
-  }
-})(CarsContainer)
+export default connect(state => ({
+  cars: state.cars.get('data'),
+}))(CarsContainer)
