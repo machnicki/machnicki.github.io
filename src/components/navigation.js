@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import history from '../history'
+import { Button } from 'react-toolbox/lib/button'
 
 export default function Navigation() {
   const transition = event => {
@@ -12,6 +13,7 @@ export default function Navigation() {
 
   return (
     <nav>
+      <Button label="Hello World!" />
       <ul>
         <li><a href="/" onClick={ transition }>Start</a></li>
         <li><a href="/cars" onClick={ transition }>Cars list</a></li>

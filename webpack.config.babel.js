@@ -1,6 +1,8 @@
 import path from 'path'
 import webpack from 'webpack'
 import webpackAliases from './webpack-aliases'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import autoprefixer from 'autoprefixer'
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -20,6 +22,7 @@ export default {
     new webpack.DefinePlugin({
       __DEV__: true, //set this variable from outside
     }),
+    new ExtractTextPlugin('style.css', { allChunks: true }),
   ],
   module: {
     loaders: [
@@ -29,11 +32,12 @@ export default {
         include: PATHS.app,
       },
       {
-        test: /\.css$/,
-        loaders: [
-          'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-        ],
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          `css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]
+          !postcss!sass`
+        ),
       },
     ],
     preLoaders: [
@@ -46,5 +50,10 @@ export default {
   },
   resolve: {
     alias: webpackAliases,
+  },
+  postcss: [autoprefixer],
+  sassLoader: {
+    data: '@import "styles/theme.scss";',
+    includePaths: [PATHS.app],
   },
 }

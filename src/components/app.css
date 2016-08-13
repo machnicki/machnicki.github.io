@@ -1,5 +1,5 @@
 .app {
-  composes: red from '../styles/classes.css';
+  composes: background-primary from '../styles/classes.css';
 }
 
 .bold {
