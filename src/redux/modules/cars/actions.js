@@ -6,8 +6,8 @@ import {
   DEL,
 } from './types'
 
-export function create(payload) {
-  return { type: CREATE, payload }
+export function create({ payload, callback }) {
+  return { type: CREATE, payload, callback }
 }
 
 export function update(payload) {

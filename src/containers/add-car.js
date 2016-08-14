@@ -3,15 +3,28 @@ import { connect } from 'react-redux'
 import { CarForm } from '../components/cars'
 import * as CarsActions from '../redux/modules/cars/actions'
 
-export default function AddCarContainer({
+export function AddCarContainer({
   dispatch,
 }) {
-  const handleSubmitCarForm = data => dispatch(CarsActions.create(data))
+  let callbacksCarForm = {}
+  const handleSubmitCarForm = data => dispatch(CarsActions.create({
+    payload: data,
+    callback: () => {
+      callbacksCarForm.resetForm()
+      alert('car add with success')
+    },
+  }))
+  const handleCallbacksCarForm = callbacks => {
+    callbacksCarForm = callbacks
+  }
 
   return (
-    <CarForm
-      onSubmit={ handleSubmitCarForm }
-    />
+    <div>
+      <CarForm
+        onSubmit={ handleSubmitCarForm }
+        callbacks={ handleCallbacksCarForm }
+      />
+    </div>
   )
 }
 

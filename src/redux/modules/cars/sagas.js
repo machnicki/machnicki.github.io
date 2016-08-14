@@ -45,6 +45,7 @@ function* create(action = {}) {
   try {
     const result = yield call(() => http.post(APIurl, action.payload))
     yield put({ type: CREATE_SUCCESS, result })
+    if (typeof action.callback === 'function') action.callback()
   } catch (e) {
     yield put({ type: CREATE_ERROR, message: e.message })
   }
