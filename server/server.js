@@ -12,6 +12,9 @@ const mainRoute = require('./routes/index')
 const usersRoute = require('./routes/users')
 const carsRoute = require('./routes/cars')
 
+const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
