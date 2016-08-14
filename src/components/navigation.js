@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
 import history from '../history'
-import { Button } from 'react-toolbox/lib/button'
+import AppBar from 'react-toolbox/lib/app_bar';
+import Navigation from 'react-toolbox/lib/navigation'
+import Link from 'react-toolbox/lib/link'
 
-export default function Navigation() {
+export default function MyNavigation() {
   const transition = event => {
     event.preventDefault()
     history.push({
@@ -11,14 +13,17 @@ export default function Navigation() {
     })
   }
 
+  const currentPath = history.getCurrentLocation().pathname
+
   return (
-    <nav>
-      <Button label="Hello World!" />
-      <ul>
-        <li><a href="/" onClick={ transition }>Start</a></li>
-        <li><a href="/cars" onClick={ transition }>Cars list</a></li>
-        <li><a href="/add" onClick={ transition }>Add a car</a></li>
-      </ul>
-    </nav>
+    <div>
+      <AppBar fixed flat>
+        <Link label="Cars explorer" active href="/"  icon="directions_car" onClick={ transition } />
+        <Navigation type="horizontal">
+          <Link href="/cars" onClick={ transition } active={ currentPath === '/cars' } label="Cars list" icon="list" />
+          <Link href="/add" onClick={ transition } active={ currentPath === '/add' } label="Add new car" icon="add" />
+        </Navigation>
+      </AppBar>
+    </div>
   )
 }
