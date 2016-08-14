@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { List } from 'react-toolbox/lib/list'
 import CSSModules from 'react-css-modules'
 import styles from './style.css'
 import CarsItem from './cars-item'
@@ -7,7 +8,7 @@ export function CarsList({ cars, onRemove }) {
   const handleRemove = carId => () => onRemove(carId)
 
   return (
-    <ul styleName="cars-list">
+    <List selectable ripple styleName="cars-list">
       {
         cars.map(car => (
           <CarsItem
@@ -16,7 +17,7 @@ export function CarsList({ cars, onRemove }) {
           />
         ))
       }
-    </ul>
+    </List>
   )
 }
 
