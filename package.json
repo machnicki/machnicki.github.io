@@ -7,7 +7,7 @@
     "npm": "3.8.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --content-base build",
+    "start": "webpack-dev-server --content-base build --history-api-fallback",
     "postinstall": "webpack",
     "build": "webpack",
     "server": "node server",
