@@ -1,0 +1,16 @@
+.navigation { }
+
+.navigation-item {
+  background: black;
+}
+
+.navigation-item > span {
+  display: none;
+}
+
+.navigation-item .navigation-link {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+}
