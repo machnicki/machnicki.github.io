@@ -74,7 +74,7 @@
     "redux": "^3",
     "redux-saga": "*",
     "sass-loader": "^4.0.0",
-    "style-loader": "*",
+    "style-loader": "^0.13.1",
     "webpack": "^1"
   },
   "devDependencies": {

@@ -22,7 +22,7 @@ export default {
     new webpack.DefinePlugin({
       __DEV__: true, //set this variable from outside
     }),
-    new ExtractTextPlugin('style.css', { allChunks: true }),
+    //new ExtractTextPlugin('style.css', { allChunks: true }),
   ],
   module: {
     loaders: [
@@ -33,11 +33,7 @@ export default {
       },
       {
         test: /(\.scss|\.css)$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          `css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]
-          !postcss!sass`
-        ),
+        loader: 'style!css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass',
       },
     ],
     preLoaders: [
