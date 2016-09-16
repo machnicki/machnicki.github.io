@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
+const MONGODB_URI = require('../env.js').MONGODB_URI
 
 module.exports = {
   init() {
-    mongoose.connect('mongodb://localhost/cars-redux')
+    mongoose.connect(MONGODB_URI)
     mongoose.connection.on('error', () => {
       console.error('Connection Error')
     })

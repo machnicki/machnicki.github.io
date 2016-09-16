@@ -22,3 +22,8 @@ Project to test some new techs
 `heroku open`
 `heroku local web`
 `heroku logs --tail`
+`brew services start mongodb`
+
+## Environments
+* Default values are specified in `env.js` file
+* To overwrite them you can specify env variables eg. in Heroku
