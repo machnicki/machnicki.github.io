@@ -12,6 +12,9 @@ const usersRoute = require('./routes/users')
 const carsRoute = require('./routes/cars')
 
 const mongoose = require('mongoose')
+
+const env = require('../env.js')
+
 mongoose.Promise = global.Promise
 
 module.exports = {
@@ -32,6 +35,6 @@ module.exports = {
     app.use('/users', usersRoute)
     app.use('/cars', carsRoute)
 
-    app.listen(3000, () => { console.log('App is listenning on port 3000') })
+    app.listen(env.BE_PORT, () => { console.log(`App is listenning on port ${env.BE_PORT}`) })
   }
 }

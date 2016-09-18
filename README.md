@@ -23,6 +23,7 @@ Project to test some new techs
 `heroku local web`
 `heroku logs --tail`
 `heroku run bash` - to work on SSH
+`heroku config` - get list of env variables
 `brew services start mongodb`
 
 ## Environments

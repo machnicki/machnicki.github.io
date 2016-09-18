@@ -4,6 +4,8 @@ import webpackAliases from './webpack-aliases'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import autoprefixer from 'autoprefixer'
 
+import { API_URL, ENVIRONMENT } from './env'
+
 const PATHS = {
   app: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
@@ -20,7 +22,8 @@ export default {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __DEV__: true, //set this variable from outside
+      __DEV__: ENVIRONMENT === 'development', // set this variable from outside
+      APIUrl: JSON.stringify(API_URL),
     }),
     //new ExtractTextPlugin('style.css', { allChunks: true }),
   ],

@@ -1,4 +1,4 @@
-const APIUrl = 'http://localhost:3000'
+/* global APIUrl:true */
 
 const CarsUrl = `${APIUrl}/cars`
 
