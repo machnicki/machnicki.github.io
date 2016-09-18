@@ -22,6 +22,7 @@ Project to test some new techs
 `heroku open`
 `heroku local web`
 `heroku logs --tail`
+`heroku run bash` - to work on SSH
 `brew services start mongodb`
 
 ## Environments
